@@ -1,4 +1,4 @@
-# VCN
+
 resource "oci_core_vcn" "main" {
   compartment_id =  var.compartment_id
   cidr_block     =  var.vcn_cidr
@@ -6,21 +6,21 @@ resource "oci_core_vcn" "main" {
   dns_label      = "${var.app_name}${var.environment}vcn"
 }
 
-# Internet Gateway
+
 resource "oci_core_internet_gateway" "main" {
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.main.id
   display_name   = "${var.app_name}-${var.environment}-internet-gateway"
 }
 
-# NAT Gateway
+
 resource "oci_core_nat_gateway" "main" {
   compartment_id = var.compartment_id
   vcn_id         = oci_core_vcn.main.id
   display_name   = "${var.app_name}-${var.environment}-nat-gateway"
 }
 
-# # Public Subnet
+
 # resource "oci_core_subnet" "public" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
@@ -32,7 +32,7 @@ resource "oci_core_nat_gateway" "main" {
 #   route_table_id    = oci_core_route_table.public.id
 # }
 
-# # Private Subnet
+
 # resource "oci_core_subnet" "private" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
@@ -46,7 +46,7 @@ resource "oci_core_nat_gateway" "main" {
 # }
 
 
-# # Public Route Table
+
 # resource "oci_core_route_table" "public" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
@@ -58,7 +58,7 @@ resource "oci_core_nat_gateway" "main" {
 #   }
 # }
 
-# # Private Route Table
+
 # resource "oci_core_route_table" "private" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
@@ -70,7 +70,7 @@ resource "oci_core_nat_gateway" "main" {
 #   }
 # }
 
-# # Public Security List
+
 # resource "oci_core_security_list" "public" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
@@ -112,7 +112,7 @@ resource "oci_core_nat_gateway" "main" {
 #   }
 # }
 
-# # Private Security List
+
 # resource "oci_core_security_list" "private" {
 #   compartment_id = var.compartment_id
 #   vcn_id         = oci_core_vcn.main.id
