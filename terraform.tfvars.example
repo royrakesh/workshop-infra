@@ -1,0 +1,8 @@
+region                  = "us-ashburn-1"
+auth                    = "APIKey"
+config_file_profile     = "DEFAULT"
+compartment_id          = "" // Workshop
+app_name                = "nf"
+environment             = "dev"
+vcn_cidr                = "10.0.0.0/16"
+
